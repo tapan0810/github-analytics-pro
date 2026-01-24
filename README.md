@@ -1,5 +1,4 @@
-# github-analytics-pro
-Advanced GitHub profile &amp; repository analytics dashboard with modern UI
+Click Here - https://github-analytic-pro.netlify.app/
 # GitHub Analytics Pro 🚀
 
 Advanced GitHub profile and repository analytics dashboard with modern UI, animations, and health scoring.
