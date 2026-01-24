@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Profile Intelligence Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>GitHub Profile Intelligence</h1>
+            <p class="subtitle">Advanced developer analytics and repository insights</p>
+        </header>
+
+        <!-- Search Form -->
+        <div class="search-container">
+            <form class="search-form" id="searchForm">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    id="usernameInput" 
+                    placeholder="Enter GitHub username (e.g., torvalds, tj, gaearon)"
+                    required
+                    autocomplete="off"
+                >
+                <button type="submit" class="search-btn" id="searchBtn">
+                    Analyze Profile
+                </button>
+            </form>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p class="loading-text">Fetching GitHub data...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage">
+            <div class="error-icon">⚠️</div>
+            <p id="errorText"></p>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-section" id="profileSection">
+            <div class="profile-header">
+                <div class="profile-avatar-container">
+                    <img src="" alt="Profile Avatar" class="profile-avatar" id="profileAvatar">
+                </div>
+                <div class="profile-info">
+                    <h2 class="profile-name" id="profileName"></h2>
+                    <p class="profile-username" id="profileUsername"></p>
+                    <p class="profile-bio" id="profileBio"></p>
+                    <p class="profile-location" id="profileLocation"></p>
+                    
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <div class="stat-value" id="followersCount">0</div>
+                            <div class="stat-label">Followers</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="followingCount">0</div>
+                            <div class="stat-label">Following</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="reposCount">0</div>
+                            <div class="stat-label">Repositories</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="gistsCount">0</div>
+                            <div class="stat-label">Gists</div>
+                        </div>
+                    </div>
+
+                    <a href="" target="_blank" class="github-link" id="profileLink">
+                        <svg class="github-icon icon-lg" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        View Full Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Bar (Filter & Sort) -->
+        <div class="controls-bar" id="controlsBar">
+            <input 
+                type="text" 
+                class="filter-input" 
+                id="filterInput" 
+                placeholder="🔍 Search repositories by name or description..."
+            >
+            <select class="sort-dropdown" id="sortDropdown">
+                <option value="updated">Recently Updated</option>
+                <option value="stars">Most Stars</option>
+                <option value="forks">Most Forks</option>
+                <option value="name">Name (A-Z)</option>
+            </select>
+        </div>
+
+        <!-- Repositories Section -->
+        <div class="repos-section" id="reposSection">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <svg class="github-icon icon-lg" viewBox="0 0 16 16">
+                        <path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"/>
+                    </svg>
+                    Public Repositories
+                </h2>
+                <div class="repo-count-badge" id="repoCountBadge">0 repos</div>
+            </div>
+            <div class="repos-grid" id="reposGrid"></div>
+        </div>
+    </div>
+
+   <script src="script.js"></script>
+</body>
+</html>
